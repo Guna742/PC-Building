@@ -1,0 +1,50 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0 28px;
+  background: var(--bg-secondary);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.brand { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+
+.logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--accent-2); }
+
+.brand p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+.links a:hover { color: var(--accent-2); }
+
+.copy {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
