@@ -15,7 +15,7 @@ export default function ComponentSelector({ activeCategory }) {
       {/* Header */}
       <div className={styles.header}>
         <span className={`icon icon-filled ${styles.catIcon}`}>{CATEGORY_ICONS[activeCategory]}</span>
-        <div>
+        <div className={styles.catInfo}>
           <h3 className={styles.catTitle}>
             {CATEGORY_LABELS[activeCategory]}
           </h3>
