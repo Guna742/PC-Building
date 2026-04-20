@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: calc(100vh - 80px);
+  min-height: 600px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -44,9 +45,8 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
   align-items: center;
-  width: 100%;
-  min-height: calc(100vh - 80px);
-  padding-block: 60px;
+  min-height: 100%;
+  padding-block: 40px;
 }
 
 /* ── Text side ── */

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { BuilderProvider } from './context/BuilderContext';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './components/Utils/ScrollToTop';
 import Home from './pages/Home';
 import Features from './pages/Features';
 import BuilderPage from './pages/BuilderPage';
@@ -11,6 +12,7 @@ import './index.css';
 export default function App() {
   return (
     <BuilderProvider>
+      <ScrollToTop />
       <Navbar />
       <main>
         <Routes>
