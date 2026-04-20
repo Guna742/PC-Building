@@ -53,8 +53,12 @@ export default function PCCanvas({ selections = {}, minimal = false }) {
           enablePan={false}
           autoRotate
           autoRotateSpeed={0.5}
+          enableDamping={true}
+          dampingFactor={0.05}
+          touchAction="none"
           maxPolarAngle={Math.PI / 1.7}
           minPolarAngle={Math.PI / 3}
+          makeDefault
         />
       </Suspense>
     </Canvas>

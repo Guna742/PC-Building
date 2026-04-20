@@ -233,6 +233,10 @@
 
 /* ── Tablet: < 1100px — stack vertically ── */
 @media (max-width: 1100px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
   .content {
     grid-template-columns: 1fr;
     gap: 40px;
