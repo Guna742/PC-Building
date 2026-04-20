@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
+import { FiSliders, FiZap, FiPackage, FiShield } from 'react-icons/fi';
 import useTilt from '../../hooks/useTilt';
 import styles from './Services.module.css';
 
 const SERVICES = [
   {
-    icon: 'build',
+    icon: <FiSliders />,
     title: 'Custom Builds',
     description:
       'Craft a fully personalized PC tailored to your workload — gaming, streaming, 3D rendering, or AI development.',
@@ -12,7 +13,7 @@ const SERVICES = [
     tags: ['Gaming', 'Workstation', 'AI Rig'],
   },
   {
-    icon: 'speed',
+    icon: <FiZap />,
     title: 'Performance Tuning',
     description:
       'Automatically calculated wattage budgets, thermal headroom analysis, and bottleneck detection for your build.',
@@ -20,7 +21,7 @@ const SERVICES = [
     tags: ['Overclocking', 'Cooling', 'Benchmarks'],
   },
   {
-    icon: 'extension',
+    icon: <FiPackage />,
     title: 'Parts Advisor',
     description:
       'Smart compatibility matrix ensures every selected component works in harmony — no more socket mismatches.',
@@ -28,7 +29,7 @@ const SERVICES = [
     tags: ['CPU+MB', 'DDR5', 'PCIe 5.0'],
   },
   {
-    icon: 'verified_user',
+    icon: <FiShield />,
     title: 'Build Warranty',
     description:
       'Export your full build spec as a JSON manifest, shareable with any vendor or builder for hassle-free ordering.',
@@ -54,7 +55,7 @@ function ServiceCard({ service, index }) {
     >
       <div className={styles.cardGlow} />
       <div className={styles.iconWrap}>
-        <span className={`icon icon-filled ${styles.icon}`}>{service.icon}</span>
+        <div className={styles.icon}>{service.icon}</div>
       </div>
       <h3 className={styles.cardTitle}>{service.title}</h3>
       <p className={styles.cardDesc}>{service.description}</p>
@@ -82,7 +83,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className={styles.sectionTag}>Why Choose ForgPC</span>
+          <span className={styles.sectionTag}>Why Choose ForgePC</span>
           <h2 className={styles.sectionTitle}>
             Everything You Need to
             <span className="gradient-text"> Build Smart</span>

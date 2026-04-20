@@ -1,14 +1,20 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FiCpu, FiShield, FiBox, FiArrowRight } from 'react-icons/fi';
 import { useBuilder } from '../../context/BuilderContext';
 import PCCanvas from '../ThreeCanvas/PCCanvas';
 import styles from './Hero.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BADGE_ITEMS = ['Next-Gen Performance', 'Smart Compatibility', 'Live 3D Preview'];
+const BADGE_ITEMS = [
+  { icon: <FiCpu />, label: 'Next-Gen Performance' },
+  { icon: <FiShield />, label: 'Smart Compatibility' },
+  { icon: <FiBox />, label: 'Live 3D Preview' },
+];
 
 export default function Hero() {
   const { selections } = useBuilder();
@@ -51,7 +57,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {BADGE_ITEMS.map((b) => (
-              <span key={b} className={styles.badge}>{b}</span>
+              <span key={b.label} className={styles.badge}>
+                 <span className={styles.badgeIcon}>{b.icon}</span>
+                 {b.label}
+              </span>
             ))}
           </motion.div>
 
@@ -83,13 +92,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
           >
-            <a href="#builder" className={styles.ctaPrimary}>
+            <Link to="/builder" className={styles.ctaPrimary}>
               <span>Start Building</span>
-              <span className={styles.btnArrow}>→</span>
-            </a>
-            <a href="#services" className={styles.ctaSecondary}>
+              <FiArrowRight className={styles.btnArrow} />
+            </Link>
+            <Link to="/features" className={styles.ctaSecondary}>
               Learn More
-            </a>
+            </Link>
           </motion.div>
 
           {/* Stats row */}

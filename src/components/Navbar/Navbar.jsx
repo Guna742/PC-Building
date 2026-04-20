@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FiZap, FiMenu, FiX } from 'react-icons/fi';
 import styles from './Navbar.module.css';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Features', href: '#services' },
-  { label: 'Builder', href: '#builder' },
-  { label: 'Summary', href: '#summary' },
+  { label: 'Home', href: '/' },
+  { label: 'Features', href: '/features' },
+  { label: 'Builder', href: '/builder' },
+  { label: 'Summary', href: '/summary' },
 ];
 
 export default function Navbar() {
@@ -28,28 +30,31 @@ export default function Navbar() {
     >
       <div className={styles.inner}>
         {/* Logo */}
-        <a href="#hero" className={styles.logo}>
-          <span className={`icon icon-filled ${styles.logoIcon}`}>bolt</span>
+        <Link href="/" className={styles.logo}>
+          <FiZap className={styles.logoIcon} />
           <span>
             FORGE<span className={styles.logoAccent}>PC</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <ul className={styles.navLinks}>
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className={styles.navLink}>
+              <NavLink 
+                to={item.href} 
+                className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}
+              >
                 {item.label}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
 
         {/* CTA */}
-        <a href="#builder" className={styles.ctaBtn}>
+        <Link to="/builder" className={styles.ctaBtn}>
           Build Now
-        </a>
+        </Link>
 
         {/* Hamburger */}
         <button
@@ -57,9 +62,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
+          {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
 
@@ -74,15 +77,22 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             {NAV_ITEMS.map((item) => (
-              <a
+              <NavLink
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className={styles.mobileLink}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
+            <Link 
+              to="/builder" 
+              className={styles.mobileCta} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Build Now
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,10 +1,11 @@
+import { Routes, Route } from 'react-router-dom';
 import { BuilderProvider } from './context/BuilderContext';
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Services from './components/Services/Services';
-import Builder from './components/Builder/Builder';
-import Summary from './components/Summary/Summary';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
+import Features from './pages/Features';
+import BuilderPage from './pages/BuilderPage';
+import SummaryPage from './pages/SummaryPage';
 import './index.css';
 
 export default function App() {
@@ -12,10 +13,12 @@ export default function App() {
     <BuilderProvider>
       <Navbar />
       <main>
-        <Hero />
-        <Services />
-        <Builder />
-        <Summary />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/builder" element={<BuilderPage />} />
+          <Route path="/summary" element={<SummaryPage />} />
+        </Routes>
       </main>
       <Footer />
     </BuilderProvider>
