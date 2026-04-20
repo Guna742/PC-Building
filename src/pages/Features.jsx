@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { FiShield, FiZap, FiBox, FiCpu, FiMonitor, FiActivity } from 'react-icons/fi';
+import { FiShield, FiZap, FiBox } from 'react-icons/fi';
+import SchematicGraphic from '../components/Graphics/SchematicGraphic';
 import styles from './Pages.module.css';
 
 const DETAIL_FEATURES = [
@@ -70,13 +71,7 @@ export default function Features() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              {/* This would ideally be an image or a mini 3D canvas */}
-              <div style={{ padding: '40px', color: 'var(--text-muted)' }}>
-                [ High-Performance Schematic Visualization Overload ]
-                <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                  <FiCpu size={40} /> <FiMonitor size={40} /> <FiActivity size={40} />
-                </div>
-              </div>
+              <SchematicGraphic />
             </motion.div>
           </div>
         </div>
