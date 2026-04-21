@@ -37,7 +37,7 @@
 
 .sectionTitle {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 12px;
@@ -335,10 +335,10 @@
 @media (max-width: 1024px) {
   .builderGrid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
-  /* 3D preview first, then component panel */
+  /* 3D preview first for visibility */
   .previewPanel {
     position: relative;
     top: 0;
@@ -347,9 +347,18 @@
 
   .panel {
     order: 2;
-    height: 580px;
+    height: 600px;
   }
 
+  .canvas {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .panel {
+    height: 500px;
+  }
   .canvas {
     height: 320px;
   }
@@ -360,73 +369,70 @@
    ════════════════════════════════ */
 @media (max-width: 640px) {
   .header {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    text-align: left; /* Left align for better mobile fit */
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
   }
 
   /* Tighter progress bar */
   .progressWrap {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .progressLabel {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
-  /* Component panel: auto height, scrolls naturally */
+  /* Component panel: height is fixed to allow internal scrolling of categories */
   .panel {
-    height: auto;
-    max-height: none;
+    height: 550px;
     border-radius: var(--radius-md);
   }
 
   /* 3D canvas: shorter on phone */
   .canvas {
-    height: 240px;
+    height: 280px;
   }
 
-  /* Canvas label: compact */
-  .canvasLabel {
-    padding: 10px 14px;
-    font-size: 0.8rem;
-  }
-
-  /* Stats: 3 cols but tighter */
+  /* Stats: stack if needed or keep compact grid */
   .quickStats {
-    padding: 10px 12px;
+    padding: 12px;
   }
 
   .qVal {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .qLabel {
-    font-size: 0.58rem;
-    letter-spacing: 0.2px;
-  }
-
-  .qDivider {
-    height: 28px;
+    font-size: 0.55rem;
   }
 
   /* Action buttons: stack vertically */
   .actions {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .finalizeBtn {
+  .finalizeBtn, .summaryBtn, .resetBtn {
     width: 100%;
     padding: 14px;
-    font-size: 0.95rem;
+    justify-content: center;
   }
+}
 
-  .summaryBtn {
-    width: 100%;
-    padding: 13px;
+@media (max-width: 480px) {
+  .panel {
+    height: 500px;
   }
-
-  .resetBtn {
-    width: 100%;
-    padding: 12px;
+  
+  .canvas {
+    height: 240px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
   }
 }

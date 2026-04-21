@@ -10,7 +10,7 @@
 
 .sectionTitle {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.8rem, 8vw, 3.5rem);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -18,7 +18,7 @@
 
 .sectionSub {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
   margin-top: 12px;
 }
 
@@ -77,9 +77,15 @@
 
 /* Detail Pages */
 .detailHeader {
-  padding: 100px 0 60px;
+  padding: 120px 0 60px;
   background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .detailHeader {
+    padding: 100px 0 40px;
+  }
 }
 
 .contentBody {
@@ -101,6 +107,26 @@
   border: 1px solid var(--border);
   overflow: hidden;
   position: relative;
+}
+
+/* Page grid for wrapper layouts (e.g. BuilderPage) */
+.pageGrid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+@media (max-width: 1100px) {
+  .pageGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Icons */

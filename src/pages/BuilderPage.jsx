@@ -21,7 +21,7 @@ export default function BuilderPage() {
 
       <section className={styles.contentBody}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '32px' }}>
+          <div className={styles.pageGrid}>
             <Builder />
             
             {/* Sidebar Guide */}

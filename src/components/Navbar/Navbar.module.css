@@ -20,7 +20,7 @@
 .inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--container-padding, 32px);
+  padding: 0 var(--container-padding);
   display: flex;
   align-items: center;
   gap: 32px;
@@ -166,6 +166,8 @@
 
 /* ── Mobile breakpoint ── */
 @media (max-width: 768px) {
+  .navbar { padding: 16px 0; }
+  
   .navLinks,
   .ctaBtn {
     display: none;
@@ -176,7 +178,17 @@
   }
 
   .inner {
-    padding: 0 16px;
-    gap: 16px;
+    gap: 12px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
   }
 }

@@ -1,10 +1,10 @@
 .hero {
   position: relative;
-  height: calc(100vh - 80px);
-  min-height: 600px;
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: 80px; /* Offset for fixed navbar */
 }
 
 .gridBg {
@@ -236,12 +236,13 @@
   .hero {
     height: auto;
     min-height: 100vh;
+    padding-top: 100px;
   }
   .content {
     grid-template-columns: 1fr;
     gap: 40px;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
   }
 
   .canvasSide {
@@ -252,14 +253,23 @@
 
 /* ── Mobile: < 768px ── */
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 80px;
+  }
+  
   .content {
-    gap: 28px;
-    padding-top: 24px;
+    gap: 32px;
+    padding-top: 20px;
   }
 
   .textSide {
     text-align: center;
-    gap: 18px;
+    gap: 20px;
+  }
+
+  .headline {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 
   .badges {
@@ -269,6 +279,7 @@
   .sub {
     margin: 0 auto;
     font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .ctaRow {
@@ -278,6 +289,7 @@
   .stats {
     justify-content: center;
     gap: 24px;
+    padding-top: 16px;
   }
 
   .canvasSide {
